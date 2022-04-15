@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/browseFragment">
+
+    <fragment
+        android:id="@+id/browseFragment"
+        android:name="com.mfathoer.sharecipe.BrowseFragment"
+        android:label="BrowseFragment" />
+    <fragment
+        android:id="@+id/bookmarksFragment"
+        android:name="com.mfathoer.sharecipe.BookmarksFragment"
+        android:label="BookmarksFragment" />
+</navigation>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Sharecipe</string>
+    <string name="browse">Browse</string>
+    <string name="bookmarks">Bookmarks</string>
 </resources>
