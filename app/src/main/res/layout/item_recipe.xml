@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_regular"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img"
+            app:layout_constraintTop_toTopOf="@id/img"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/tv_calories"
+            style="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            tools:text="calories: 20g" />
+
+        <TextView
+            android:id="@+id/tv_fat"
+            style="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_calories"
+            tools:text="fat: 20g" />
+
+        <TextView
+            android:id="@+id/tv_carbs"
+            style="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="@id/tv_calories"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_calories"
+            app:layout_constraintTop_toTopOf="@id/tv_calories"
+            tools:text="carbs: 84g" />
+
+        <TextView
+            android:id="@+id/tv_protein"
+            style="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="@id/tv_fat"
+            app:layout_constraintStart_toStartOf="@id/tv_carbs"
+            app:layout_constraintTop_toTopOf="@id/tv_fat"
+            tools:text="protein: 19g" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
