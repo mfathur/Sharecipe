@@ -6,10 +6,22 @@
 
     <fragment
         android:id="@+id/browseFragment"
-        android:name="com.mfathoer.sharecipe.BrowseFragment"
-        android:label="BrowseFragment" />
+        android:name="com.mfathoer.sharecipe.presentation.browse.BrowseFragment"
+        android:label="BrowseFragment" >
+        <action
+            android:id="@+id/action_browseFragment_to_detailRecipeFragment"
+            app:destination="@id/detailRecipeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/bookmarksFragment"
-        android:name="com.mfathoer.sharecipe.BookmarksFragment"
-        android:label="BookmarksFragment" />
+        android:name="com.mfathoer.sharecipe.presentation.bookmarks.BookmarksFragment"
+        android:label="BookmarksFragment" >
+        <action
+            android:id="@+id/action_bookmarksFragment_to_detailRecipeFragment"
+            app:destination="@id/detailRecipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailRecipeFragment"
+        android:name="com.mfathoer.sharecipe.presentation.detailrecipe.DetailRecipeFragment"
+        android:label="DetailRecipeFragment" />
 </navigation>

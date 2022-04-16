@@ -1,4 +1,4 @@
-package com.mfathoer.sharecipe
+package com.mfathoer.sharecipe.presentation.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

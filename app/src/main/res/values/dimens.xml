@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--   Font size -->
+    <dimen name="font_size_large_button">20sp</dimen>
+
     <!--    Spacing between 2 views-->
     <dimen name="spacing_tiny">4dp</dimen>
     <dimen name="spacing_small">8dp</dimen>
     <dimen name="spacing_regular">16dp</dimen>
+    <dimen name="spacing_medium">28dp</dimen>
+
+    <!--    Corner radius-->
+    <dimen name="corner_radius_normal">8dp</dimen>
+
+    <dimen name="circular_img_button_size">48dp</dimen>
 </resources>

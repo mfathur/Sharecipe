@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/bg_circular.xml" value="0.2155" />
+        <entry key="app/src/main/res/drawable/ripple_circle.xml" value="0.2155" />
         <entry key="app/src/main/res/drawable/search_box.xml" value="0.2155" />
         <entry key="app/src/main/res/font/poppins.xml" value="0.2984381595609962" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18958333333333333" />

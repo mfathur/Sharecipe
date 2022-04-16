@@ -3,4 +3,9 @@
     <string name="browse">Browse</string>
     <string name="bookmarks">Bookmarks</string>
     <string name="search_recipes">Search recipes...</string>
+    <string name="content_desc_back_to_previous_screen">back to previous screen</string>
+    <string name="content_desc_add_to_bookmark">add to bookmark</string>
+    <string name="summary">Summary</string>
+    <string name="view_detail">View Detail</string>
+    <string name="share">Share</string>
 </resources>
