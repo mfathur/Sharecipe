@@ -1,7 +1,7 @@
 package com.mfathoer.sharecipe.domain.di
 
-import com.mfathoer.sharecipe.data.source.RemoteDataSource
-import com.mfathoer.sharecipe.data.source.api.ApiService
+import com.mfathoer.sharecipe.data.source.remote.RemoteDataSource
+import com.mfathoer.sharecipe.data.source.remote.api.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
