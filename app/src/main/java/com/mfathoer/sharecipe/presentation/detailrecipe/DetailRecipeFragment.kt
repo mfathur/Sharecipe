@@ -13,7 +13,6 @@ import com.mfathoer.sharecipe.data.LoadResult
 import com.mfathoer.sharecipe.databinding.FragmentDetailRecipeBinding
 import com.mfathoer.sharecipe.domain.model.Recipe
 import com.mfathoer.sharecipe.domain.utils.Helpers
-import com.mfathoer.sharecipe.domain.utils.showSnackBar
 import com.mfathoer.sharecipe.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -69,10 +68,8 @@ class DetailRecipeFragment :
         detailRecipeViewModel.bookmarkStatus.observe(viewLifecycleOwner) { status ->
             if (status) {
                 binding.btnBookmark.setImageResource(R.drawable.ic_baseline_bookmark_24)
-                binding.root.showSnackBar(getString(R.string.recipe_saved))
             } else {
                 binding.btnBookmark.setImageResource(R.drawable.ic_baseline_bookmark_border_24)
-                binding.root.showSnackBar(getString(R.string.recipe_unsaved))
             }
         }
     }

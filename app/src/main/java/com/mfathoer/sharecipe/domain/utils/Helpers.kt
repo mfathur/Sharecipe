@@ -23,10 +23,6 @@ fun Context.hideKeyboard(view: View) {
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }
 
-fun View.showSnackBar(message: String) {
-    Snackbar.make(this, message, Snackbar.LENGTH_SHORT).show()
-}
-
 object Helpers {
     @JvmStatic
     fun convertHtmlFormattedTextToString(htmlText: String): String {
