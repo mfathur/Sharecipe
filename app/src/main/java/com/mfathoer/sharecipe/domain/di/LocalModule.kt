@@ -10,6 +10,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Singleton
 
 @Module
@@ -29,5 +30,6 @@ object LocalModule {
 
     @Singleton
     @Provides
-    fun provideLocalDataSource(bookmarkDao: BookmarkDao) = LocalDataSource(bookmarkDao)
+    fun provideLocalDataSource(ioDispatcher: CoroutineDispatcher, bookmarkDao: BookmarkDao) =
+        LocalDataSource(ioDispatcher, bookmarkDao)
 }

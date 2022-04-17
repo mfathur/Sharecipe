@@ -25,4 +25,7 @@ abstract class UseCaseModule {
     @Binds
     abstract fun provideGetDetailRecipeUseCase(getDetailRecipeUseCaseImpl: GetDetailRecipeUseCaseImpl): GetDetailRecipeUseCase
 
+    @Binds
+    abstract fun provideGetDetailBookmarkedRecipeUseCase(getDetailBookmarkedRecipeUseCaseImpl: GetDetailBookmarkedRecipeUseCaseImpl): GetDetailBookmarkedRecipeUseCase
+
 }

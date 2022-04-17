@@ -1,6 +1,7 @@
 package com.mfathoer.sharecipe.presentation
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -17,16 +18,27 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this,
+        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(
+            this,
             R.layout.activity_main
         )
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         navController = navHostFragment.navController
 
 //        synchronize bottom navigation with nav host fragment
-        NavigationUI.setupWithNavController(binding.bottomNav,navController)
+        NavigationUI.setupWithNavController(binding.bottomNav, navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.detailRecipeFragment) {
+                binding.bottomNav.visibility = View.GONE
+            } else {
+                binding.bottomNav.visibility = View.VISIBLE
+            }
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

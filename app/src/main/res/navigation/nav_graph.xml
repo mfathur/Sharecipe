@@ -23,5 +23,9 @@
     <fragment
         android:id="@+id/detailRecipeFragment"
         android:name="com.mfathoer.sharecipe.presentation.detailrecipe.DetailRecipeFragment"
-        android:label="DetailRecipeFragment" />
+        android:label="DetailRecipeFragment" >
+        <argument
+            android:name="recipeId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

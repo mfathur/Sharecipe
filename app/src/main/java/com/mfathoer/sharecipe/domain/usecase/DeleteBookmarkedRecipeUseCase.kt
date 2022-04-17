@@ -1,5 +1,7 @@
 package com.mfathoer.sharecipe.domain.usecase
 
-interface DeleteBookmarkedRecipeUseCase {
+import com.mfathoer.sharecipe.domain.model.Recipe
 
+interface DeleteBookmarkedRecipeUseCase {
+    suspend operator fun invoke(recipe: Recipe)
 }

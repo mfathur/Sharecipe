@@ -5,6 +5,19 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.mfathoer.sharecipe.presentation.detailrecipe.DetailRecipeViewModel" />
+
+        <variable
+            name="detailRecipeFragment"
+            type="com.mfathoer.sharecipe.presentation.detailrecipe.DetailRecipeFragment" />
+
+        <variable
+            name="recipe"
+            type="com.mfathoer.sharecipe.domain.model.Recipe" />
+
+
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -22,6 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="300dp"
                 android:scaleType="centerCrop"
+                app:imageUrl="@{recipe.imageUrl}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -35,6 +49,7 @@
                 android:layout_margin="@dimen/spacing_regular"
                 android:background="@drawable/bg_circular"
                 android:contentDescription="@string/content_desc_back_to_previous_screen"
+                android:onClick="@{()->detailRecipeFragment.backToPreviousScreen()}"
                 android:padding="@dimen/spacing_small"
                 android:src="@drawable/ic_baseline_arrow_back_24"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +63,7 @@
                 android:layout_margin="@dimen/spacing_regular"
                 android:background="@drawable/bg_circular"
                 android:contentDescription="@string/content_desc_add_to_bookmark"
+                android:onClick="@{()->viewModel.changeBookmarkStatus()}"
                 android:padding="@dimen/spacing_small"
                 android:src="@drawable/ic_baseline_bookmark_border_24"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,24 +76,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_regular"
+                android:text="@{recipe.title}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/img_recipe"
                 tools:text="@tools:sample/lorem" />
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_regular"
-                android:clipToPadding="false"
-                android:paddingStart="@dimen/spacing_small"
-                app:chipSpacingHorizontal="@dimen/spacing_small"
-                app:layout_constraintTop_toBottomOf="@id/tv_recipe_name"
-                app:singleLine="true"
-                tools:ignore="RtlSymmetry">
-
-            </com.google.android.material.chip.ChipGroup>
 
             <TextView
                 android:id="@+id/tv_title_summary"
@@ -88,14 +91,15 @@
                 android:text="@string/summary"
                 app:layout_constraintEnd_toEndOf="@id/tv_recipe_name"
                 app:layout_constraintStart_toStartOf="@id/tv_recipe_name"
-                app:layout_constraintTop_toBottomOf="@id/chip_group" />
+                app:layout_constraintTop_toBottomOf="@id/tv_recipe_name" />
 
             <TextView
-                android:id="@+id/tv_description"
+                android:id="@+id/tv_summary"
                 style="@style/TextAppearance.MdcTypographyStyles.Body2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_tiny"
+                android:text="@{recipe.summary}"
                 app:layout_constraintEnd_toEndOf="@id/tv_recipe_name"
                 app:layout_constraintStart_toStartOf="@id/tv_recipe_name"
                 app:layout_constraintTop_toBottomOf="@id/tv_title_summary"
@@ -107,6 +111,7 @@
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:onClick="@{()->detailRecipeFragment.shareRecipe(recipe.sourceUrl)}"
                 android:paddingVertical="10dp"
                 android:text="@string/share"
                 android:textAllCaps="false"
@@ -115,7 +120,7 @@
                 app:layout_constraintBottom_toTopOf="@id/btn_view_detail"
                 app:layout_constraintEnd_toEndOf="@id/btn_view_detail"
                 app:layout_constraintStart_toStartOf="@id/btn_view_detail"
-                app:layout_constraintTop_toBottomOf="@id/tv_description"
+                app:layout_constraintTop_toBottomOf="@id/tv_summary"
                 app:layout_constraintVertical_bias="1"
                 app:layout_constraintVertical_chainStyle="packed"
                 app:strokeColor="?colorPrimary"
@@ -126,6 +131,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_regular"
+                android:onClick="@{()->detailRecipeFragment.openRecipeUrlInBrowser(recipe.sourceUrl)}"
                 android:paddingVertical="10dp"
                 android:text="@string/view_detail"
                 android:textAllCaps="false"
@@ -136,6 +142,21 @@
                 app:layout_constraintStart_toStartOf="@id/tv_title_summary"
                 app:layout_constraintVertical_bias="1"
                 app:layout_constraintVertical_chainStyle="packed" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="btn_bookmark,img_recipe,tv_recipe_name,tv_summary,tv_title_summary,btn_share,btn_view_detail" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

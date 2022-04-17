@@ -8,4 +8,10 @@
     <string name="summary">Summary</string>
     <string name="view_detail">View Detail</string>
     <string name="share">Share</string>
+    <string name="alert_empty_search_text">Search text cannot be empty</string>
+    <string name="empty_bookmark_state">You don\'t have bookmarked recipes</string>
+    <string name="share_recipe">Hey, check this delicious food. Click the link below:\n %s</string>
+    <string name="browse_with">Browse with</string>
+    <string name="recipe_saved">Recipe saved</string>
+    <string name="recipe_unsaved">Recipe unsaved</string>
 </resources>

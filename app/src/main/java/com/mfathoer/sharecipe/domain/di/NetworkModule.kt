@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,7 +18,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = "www.google.com"
+    private const val BASE_URL = "https://api.spoonacular.com"
 
     @Singleton
     @Provides
@@ -50,7 +51,10 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRemoteDataSource(apiService: ApiService): RemoteDataSource =
-        RemoteDataSource(apiService)
+    fun provideRemoteDataSource(
+        ioDispatcher: CoroutineDispatcher,
+        apiService: ApiService
+    ): RemoteDataSource =
+        RemoteDataSource(ioDispatcher, apiService)
 
 }
